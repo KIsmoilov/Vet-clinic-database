@@ -47,4 +47,4 @@ ALTER TABLE animals
 ADD owner_id INT;
 
 ALTER TABLE animals 
-ADD FOREIGN KEY (owner_id) REFERENCES owners (id)
+ADD FOREIGN KEY (species_id) REFERENCES owners (id)
