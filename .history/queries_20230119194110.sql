@@ -162,10 +162,9 @@ WHERE owners.full_name = 'Dean Winchester' AND escape_attempts = 0
 
 /* Who owns the most animals? */
 
-SELECT COUNT(owners.full_name) AS counts, owners.full_name
+SELECT COUNT(*) TotalCount, owners.full_name, animals.name
 From animals
 JOIN owners
 ON animals.owner_id = owners.id
-Group by owners.full_name
-order by counts desc limit 1
+GROUP BY owners.full_name, animals.name
 
