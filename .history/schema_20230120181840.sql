@@ -60,19 +60,8 @@ CREATE TABLE vets (
 /* Create a "join table" called specializations to handle the relationship. */
 
 CREATE TABLE specializations (
-    species_id INT REFERENCES species (id),
-    vets_id INT REFERENCES vets (id),
-    PRIMARY KEY(species_id,vets_id)
-);
-
-/* Create a "join table" called visits to handle this relationship */
-
-CREATE TABLE visits (
-    id INT GENERATED ALWAYS AS IDENTITY,
-    animals_id INT REFERENCES animals (id),
-    vets_id INT REFERENCES vets (id),
-    date DATE NOT NULL,
-    PRIMARY KEY(id)
+    species_id INT PRIMARY KEY REFERENCES species (id),
+    vets_id INT PRIMARY KEY REFERENCES vets (id),
 );
 
 
