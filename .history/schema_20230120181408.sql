@@ -56,23 +56,3 @@ CREATE TABLE vets (
 	name VARCHAR(100) NOT NULL,
 	age INT,
 	date_of_graduation DATE)
-
-/* Create a "join table" called specializations to handle the relationship. */
-
-CREATE TABLE specializations (
-    species_id INT REFERENCES species (id),
-    vets_id INT REFERENCES vets (id),
-    PRIMARY KEY(species_id,vets_id)
-);
-
-/* Create a "join table" called visits to handle this relationship */
-
-CREATE TABLE visits (
-    id INT GENERATED ALWAYS AS IDENTITY,
-    animals_id INT REFERENCES animals (id),
-    vets_id INT REFERENCES vets (id),
-    date DATE NOT NULL,
-    PRIMARY KEY(id)
-);
-
-
